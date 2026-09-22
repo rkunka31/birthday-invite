@@ -21,5 +21,5 @@ window.PARTY = {
 
   // Google Apps Script web app URL that saves RSVPs to a Google Sheet.
   // See README.md > "Connect the RSVP form". Leave blank until set up.
-  rsvpEndpoint: ""
+  rsvpEndpoint: "https://script.google.com/macros/s/AKfycbyKsZ6gLQgMLhpXT9A-eFWNwGYiEjwnwdYzn4chbcH1taSw5UDmK_dqJtUGU4s1seA/exec"
 };
