@@ -35,6 +35,9 @@
         el.classList.add("missing");
       }
     });
+    (root || document).querySelectorAll("[data-show-if]").forEach(function (el) {
+      if (!P[el.getAttribute("data-show-if")]) el.remove();
+    });
     (root || document).querySelectorAll("[data-href]").forEach(function (el) {
       el.setAttribute("href", P[el.getAttribute("data-href")]);
     });

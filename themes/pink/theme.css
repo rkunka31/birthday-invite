@@ -1,0 +1,50 @@
+/* Pink theme: blush, lavender and gold with hearts, sparkles and a scalloped edge. */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap");
+
+:root {
+  --page-bg: #fbe9f0;
+  --card-bg: #fffafc;
+  --ink: #4a2440;
+  --muted: #8a6680;
+  --accent: #ee5f9f;
+  --accent-shadow: #c9447f;
+  --accent-2: #9d7ae6;
+  --accent-3: #e8b93c;
+  --field-bg: #ffffff;
+  --field-border: #f1d3e2;
+  --font-display: "Quicksand", "Trebuchet MS", sans-serif;
+  --font-body: "Quicksand", "Helvetica Neue", Arial, sans-serif;
+  --radius: 22px;
+}
+
+/* Kids' names in a script face; everything else stays in the rounded sans. */
+.names { font-family: "Pacifico", cursive; font-weight: 400; line-height: 1.25; }
+.card .names { font-size: 36pt; }
+
+.age-badge {
+  background: radial-gradient(circle at 50% 50%, var(--accent) 0 60%, #f47eb0 61% 100%);
+  box-shadow: 0 0 0 .05in #fff inset, 0 0 0 .025in var(--accent-3), 0 .05in 0 .025in var(--accent-shadow);
+}
+.hero .age-badge { box-shadow: 0 0 0 4px #fff inset, 0 0 0 2px var(--accent-3), 0 4px 0 2px var(--accent-shadow); }
+
+.tagline { color: var(--accent-2); }
+.rsvp-block { border-color: var(--accent); border-style: dotted; border-width: 3px; }
+
+.decor {
+  background-image:
+    url("balloons.svg"),
+    url("balloons.svg"),
+    url("sparkles.svg");
+  background-repeat: no-repeat;
+  background-size: 22% auto, 18% auto, 100% auto;
+  background-position: -3% 2%, 104% 0%, center top;
+}
+.hero .decor { background-size: 26% auto, 21% auto, 100% auto; }
+
+/* Scalloped lace edge along the bottom. */
+.decor::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 16px;
+  background:
+    radial-gradient(circle at 10px 16px, #f7c6dc 9px, transparent 9.5px) 0 0 / 20px 16px repeat-x;
+}
+

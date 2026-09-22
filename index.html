@@ -19,10 +19,17 @@
       <p class="details">
         <strong data-field="dateLabel"></strong><br>
         <span data-field="time"></span><br>
-        <a class="map-link" data-href="mapUrl" target="_blank" rel="noopener" data-field="location" data-placeholder="Location TBD"></a>
+        <a class="map-link" data-href="mapUrl" target="_blank" rel="noopener" data-field="location" data-placeholder="Location TBD"></a><br>
+        <small class="address" data-field="address" data-hide-empty></small>
       </p>
       <p class="note" data-field="guestNote" data-hide-empty></p>
     </header>
+
+    <section class="panel waiver" data-show-if="waiverUrl">
+      <h2>Before the party</h2>
+      <p class="sub">Jumbaloo needs a signed waiver for each child before they can play. It takes about two minutes.</p>
+      <a class="btn btn-secondary" data-href="waiverUrl" target="_blank" rel="noopener">Sign the Jumbaloo waiver</a>
+    </section>
 
     <section class="panel" id="form-panel">
       <h2>RSVP</h2>
@@ -34,8 +41,8 @@
           <input name="name" autocomplete="name" required>
         </label>
         <label class="field">
-          <span>Phone number</span>
-          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <span>Phone number <em>(optional)</em></span>
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel">
         </label>
         <label class="field">
           <span>Email <em>(optional)</em></span>
@@ -60,6 +67,7 @@
       <p class="big" id="thanks-icon"></p>
       <h2 id="thanks-title"></h2>
       <p class="sub" id="thanks-body"></p>
+      <a class="btn" id="thanks-waiver" data-href="waiverUrl" target="_blank" rel="noopener" hidden>Sign the Jumbaloo waiver</a>
     </section>
 
     <p class="footer">Questions? Call or text <span data-field="host.name"></span> at
@@ -82,8 +90,11 @@
         document.getElementById("thanks-body").textContent = yes
           ? PARTY.dateLabel + " at " + PARTY.time + ". " + (PARTY.guestNote || "")
           : "We'll miss you. Thanks for replying.";
+        document.getElementById("thanks-waiver").hidden = !(yes && PARTY.waiverUrl);
+        var waiver = document.querySelector(".panel.waiver");
+        if (waiver && yes) waiver.hidden = true; // shown inside the thanks panel instead
         document.getElementById("thanks").hidden = false;
-        window.scrollTo(0, 0);
+        document.getElementById("thanks").scrollIntoView({ block: "center" });
       }
 
       form.addEventListener("submit", function (e) {
@@ -96,7 +107,7 @@
         var attending = data.get("attending");
 
         if (!name) return showError("Please enter your name.");
-        if (phone.replace(/\D/g, "").length < 10) return showError("Please enter a 10-digit phone number.");
+        if (phone && phone.replace(/\D/g, "").length < 10) return showError("Please enter a 10-digit phone number, or leave it blank.");
         if (email && !form.email.checkValidity()) return showError("That email address doesn't look right.");
         if (!attending) return showError("Please choose yes or no.");
         if (data.get("website")) return showThanks(attending); // bot filled the hidden field
