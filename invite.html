@@ -22,9 +22,11 @@
       <p class="details">
         <strong data-field="dateLabel"></strong><br>
         <span data-field="time"></span><br>
-        <span data-field="location" data-placeholder="Location TBD"></span>
+        <span data-field="location" data-placeholder="Location TBD"></span><br>
+        <small class="address" data-field="address" data-hide-empty></small>
       </p>
       <p class="note" data-field="guestNote" data-hide-empty></p>
+      <p class="note waiver-note" data-show-if="waiverUrl">Jumbaloo waiver required. The link is on the RSVP page.</p>
 
       <section class="rsvp-block">
         <div class="qr" id="qr" aria-label="QR code linking to the RSVP page"></div>

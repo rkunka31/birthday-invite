@@ -11,7 +11,8 @@ Party details live in `config.js`. Change them there and both pages update. The 
 
 Open `config.js` to check or change:
 
-- `location` and `mapUrl`: the venue (set to Jumbaloo, 3135 Argentia Rd). The RSVP page links the address to Google Maps.
+- `location`, `address` and `mapUrl`: the venue (Jumbaloo Ridgeway). The RSVP page links the venue name to Google Maps.
+- `waiverUrl`: the Jumbaloo waiver. The RSVP page shows a button for it; leave blank to hide.
 - `rsvpBy` (optional): a reply-by date.
 
 ## 2. Put the site online (GitHub Pages)
@@ -42,4 +43,4 @@ Open `invite.html` on the live site and press **Print / Save PDF**. It's sized f
 
 ## Themes
 
-The look is controlled by a theme folder in `themes/`. Only `default` exists today. To add one (Bluey, princesses, etc.) see `themes/README.md`. Preview a theme with `?theme=name` on either page.
+The look is controlled by a theme folder in `themes/`. Two exist: `default` (primary colours) and `pink` (in use). To add one (Bluey, princesses, etc.) see `themes/README.md`. Preview a theme with `?theme=name` on either page.

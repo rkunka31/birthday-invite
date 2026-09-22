@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240">
+  <g fill="none" stroke="#d9b8cc" stroke-width="1.5">
+    <path d="M50 108 C44 140 60 170 48 240"/>
+    <path d="M106 86 C114 124 98 160 106 240"/>
+    <path d="M78 150 C72 180 86 210 78 240"/>
+  </g>
+  <ellipse cx="50" cy="66" rx="34" ry="42" fill="#f47eb0"/>
+  <path d="M44 106 l6 -4 6 4 z" fill="#f47eb0"/>
+  <ellipse cx="38" cy="50" rx="7" ry="12" fill="#fff" opacity=".4"/>
+  <!-- heart balloon -->
+  <path d="M106 84 C84 66 74 52 76 38 C78 24 94 18 106 32 C118 18 134 24 136 38 C138 52 128 66 106 84 Z" fill="#b99cf0"/>
+  <path d="M100 88 l6 -5 6 5 z" fill="#b99cf0"/>
+  <ellipse cx="89" cy="38" rx="5" ry="8" fill="#fff" opacity=".45" transform="rotate(-25 89 38)"/>
+  <ellipse cx="78" cy="114" rx="27" ry="34" fill="#ffc2a8"/>
+  <path d="M72 147 l6 -4 6 4 z" fill="#ffc2a8"/>
+  <ellipse cx="69" cy="102" rx="5" ry="9" fill="#fff" opacity=".5"/>
+  <!-- bow on the string knot -->
+  <g transform="translate(64 162)" fill="#f47eb0">
+    <path d="M14 6 L2 0 L2 12 Z"/><path d="M14 6 L26 0 L26 12 Z"/><circle cx="14" cy="6" r="3.2"/>
+  </g>
+</svg>
