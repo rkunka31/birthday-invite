@@ -9,9 +9,9 @@ Party details live in `config.js`. Change them there and both pages update. The 
 
 ## 1. Fill in the missing details
 
-Open `config.js` and set:
+Open `config.js` to check or change:
 
-- `location`: the venue. Until you do, the pages show a yellow "Location TBD".
+- `location` and `mapUrl`: the venue (set to Jumbaloo, 3135 Argentia Rd). The RSVP page links the address to Google Maps.
 - `rsvpBy` (optional): a reply-by date.
 
 ## 2. Put the site online (GitHub Pages)

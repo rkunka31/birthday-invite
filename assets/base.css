@@ -122,6 +122,7 @@ body {
 .hero .tagline { font-size: 20px; margin-bottom: 14px; }
 .hero .details { font-size: 16px; }
 .hero .details strong { font-size: 17px; }
+.map-link { color: inherit; text-decoration-color: var(--accent-2); text-underline-offset: 3px; }
 .hero .note { font-size: 14px; margin-top: 8px; }
 
 .panel {

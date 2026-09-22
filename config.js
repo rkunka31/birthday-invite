@@ -9,7 +9,8 @@ window.PARTY = {
   date: "2026-10-14",           // YYYY-MM-DD
   dateLabel: "Wednesday, October 14",
   time: "5:30 PM",
-  location: "",                 // TODO: venue name and address, e.g. "123 Main St, Mississauga"
+  location: "Jumbaloo, 3135 Argentia Rd, Mississauga",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Jumbaloo+3135+Argentia+Rd+Mississauga",
   rsvpBy: "",                   // Optional, e.g. "October 7". Leave blank to hide.
   guestNote: "One parent per child, please.",
 
