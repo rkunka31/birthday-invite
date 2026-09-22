@@ -1,0 +1,36 @@
+/* Default theme: bright primary colours, balloons and confetti. Copy this folder to start a new theme. */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+  --page-bg: #f4efe6;
+  --card-bg: #fffdf8;
+  --ink: #2b2340;
+  --muted: #6b6380;
+  --accent: #ef5d60;
+  --accent-shadow: #c9464a;
+  --accent-2: #3fa7d6;
+  --accent-3: #f6c343;
+  --field-bg: #ffffff;
+  --field-border: #e2dbeb;
+  --font-display: "Fredoka", "Trebuchet MS", sans-serif;
+  --font-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+  --radius: 18px;
+}
+
+.decor {
+  background-image:
+    url("balloons.svg"),
+    url("balloons.svg"),
+    url("confetti.svg");
+  background-repeat: no-repeat;
+  background-size: 22% auto, 18% auto, 100% auto;
+  background-position: -3% 2%, 104% 0%, center top;
+}
+/* Striped ribbon along the bottom edge. */
+.decor::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
+  background: repeating-linear-gradient(90deg,
+    var(--accent) 0 33.33%, var(--accent-3) 33.33% 66.66%, var(--accent-2) 66.66% 100%);
+  background-size: 60px 14px;
+}
+.hero .decor { background-size: 26% auto, 21% auto, 100% auto; }
