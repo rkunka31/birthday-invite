@@ -44,3 +44,7 @@ Open `invite.html` on the live site and press **Print / Save PDF**. It's sized f
 ## Themes
 
 The look is controlled by a theme folder in `themes/`. Two exist: `default` (primary colours) and `pink` (in use). To add one (Bluey, princesses, etc.) see `themes/README.md`. Preview a theme with `?theme=name` on either page.
+
+## Link preview for texts
+
+`index.html` has link-preview tags so a texted link shows the invitation picture (`assets/share-invite.png`) with a title and date. These tags are plain text, not read from `config.js`. If the party details change, update the tags in `index.html` and replace the picture with a new screenshot of `invite.html`.
