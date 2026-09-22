@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Birthday Invitation</title>
+  <link rel="stylesheet" href="assets/base.css">
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/vendor/qrcode.js"></script>
+</head>
+<body>
+  <main class="invite-page">
+    <article class="card">
+      <div class="decor" aria-hidden="true"></div>
+
+      <p class="eyebrow">You're invited!</p>
+      <h1 class="names" data-field="names"></h1>
+      <div class="age-badge" data-field="age"></div>
+      <p class="tagline">are turning <span data-field="ageWord"></span>!</p>
+
+      <p class="details">
+        <strong data-field="dateLabel"></strong><br>
+        <span data-field="time"></span><br>
+        <span data-field="location" data-placeholder="Location TBD"></span>
+      </p>
+      <p class="note" data-field="guestNote" data-hide-empty></p>
+
+      <section class="rsvp-block">
+        <div class="qr" id="qr" aria-label="QR code linking to the RSVP page"></div>
+        <div class="rsvp-text">
+          <h2>Scan to RSVP</h2>
+          <p data-hide-empty-scope>Please reply by <span data-field="rsvpBy" data-hide-empty></span></p>
+          <p class="contact">Questions? Call or text <span data-field="host.name"></span><br><span data-field="host.phone"></span></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var qr = qrcode(0, "M");
+      qr.addData(PARTY.siteUrl);
+      qr.make();
+      document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    });
+  </script>
+</body>
+</html>

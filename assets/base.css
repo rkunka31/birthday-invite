@@ -1,0 +1,172 @@
+/* Layout shared by every theme. Themes set the variables below and add decoration. */
+:root {
+  --page-bg: #f4efe6;
+  --card-bg: #fffdf8;
+  --ink: #2b2340;
+  --muted: #6b6380;
+  --accent: #ef5d60;
+  --accent-2: #3fa7d6;
+  --accent-3: #f6c343;
+  --field-bg: #ffffff;
+  --field-border: #d9d2e3;
+  --font-display: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.missing { background: #ffe58a; color: #5a4500; padding: 0 .3em; border-radius: 4px; }
+
+/* ---------- Invitation card (invite.html) ---------- */
+.invite-page { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px 96px; }
+.card {
+  position: relative;
+  width: 5in; height: 7in;
+  max-width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(40, 30, 70, .15);
+  overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: .55in .45in .4in;
+}
+.card .decor { position: absolute; inset: 0; pointer-events: none; }
+.card > *:not(.decor) { position: relative; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase; letter-spacing: .18em;
+  font-size: 11pt; font-weight: 700; color: var(--muted);
+  margin: 0;
+}
+.names {
+  font-family: var(--font-display);
+  font-size: 34pt; line-height: 1.05; font-weight: 700;
+  margin: .08in 0 0; color: var(--ink);
+}
+.age-badge {
+  display: grid; place-items: center;
+  width: 1.45in; height: 1.45in; margin: .12in 0 .04in;
+  border-radius: 50%;
+  background: var(--accent); color: #fff;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 66pt; line-height: 1;
+  box-shadow: 0 .06in 0 var(--accent-shadow, rgba(0,0,0,.12));
+}
+.tagline {
+  font-family: var(--font-display);
+  font-size: 17pt; margin: .06in 0 .18in; color: var(--accent-2); font-weight: 600;
+}
+.details { font-size: 12.5pt; line-height: 1.45; margin: 0; }
+.details strong { font-size: 14pt; }
+.note { font-size: 10.5pt; color: var(--muted); margin: .08in 0 0; font-style: italic; }
+
+.rsvp-block {
+  margin-top: auto;
+  display: flex; align-items: center; gap: .2in;
+  text-align: left;
+  background: var(--rsvp-bg, rgba(255,255,255,.85));
+  border: 2px dashed var(--accent-2);
+  border-radius: 14px;
+  padding: .12in .16in;
+  width: 100%;
+}
+.qr { width: 1.15in; height: 1.15in; flex: none; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.rsvp-text h2 { font-family: var(--font-display); font-size: 16pt; margin: 0 0 .03in; color: var(--accent); }
+.rsvp-text p { margin: 0; font-size: 9.5pt; line-height: 1.4; color: var(--muted); }
+.rsvp-text .contact { color: var(--ink); font-weight: 600; margin-top: .05in; }
+
+.toolbar {
+  position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.toolbar button, .btn {
+  font: 600 15px var(--font-body);
+  border: 0; border-radius: 999px; cursor: pointer;
+  padding: 12px 20px;
+  background: var(--ink); color: var(--card-bg);
+}
+
+@media print {
+  @page { size: 5in 7in; margin: 0; }
+  body { background: none; }
+  .invite-page { padding: 0; min-height: 0; display: block; }
+  .card { box-shadow: none; border-radius: 0; }
+  .toolbar { display: none; }
+  .missing { background: none; }
+}
+
+/* ---------- RSVP page (index.html) ---------- */
+.rsvp-page { max-width: 520px; margin: 0 auto; padding: 16px 16px 48px; }
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 36px 20px 28px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(40, 30, 70, .1);
+}
+.hero .decor { position: absolute; inset: 0; pointer-events: none; }
+.hero > *:not(.decor) { position: relative; }
+.hero .names { font-size: clamp(30px, 9vw, 42px); }
+.hero .age-badge { width: 92px; height: 92px; font-size: 54px; margin: 12px auto 4px; }
+.hero .tagline { font-size: 20px; margin-bottom: 14px; }
+.hero .details { font-size: 16px; }
+.hero .details strong { font-size: 17px; }
+.map-link { color: inherit; text-decoration-color: var(--accent-2); text-underline-offset: 3px; }
+.hero .note { font-size: 14px; margin-top: 8px; }
+
+.panel {
+  margin-top: 16px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  box-shadow: 0 6px 24px rgba(40, 30, 70, .1);
+}
+.panel h2 { font-family: var(--font-display); font-size: 24px; margin: 0 0 4px; }
+.panel .sub { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+
+.field { display: block; margin-bottom: 14px; }
+.field span { display: block; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+.field span em { font-weight: 400; color: var(--muted); font-style: normal; }
+.field input {
+  width: 100%;
+  font: 16px var(--font-body); color: var(--ink);
+  background: var(--field-bg);
+  border: 2px solid var(--field-border); border-radius: 12px;
+  padding: 12px 14px;
+}
+.field input:focus { outline: none; border-color: var(--accent-2); }
+
+fieldset { border: 0; padding: 0; margin: 4px 0 20px; }
+legend { font-weight: 700; font-size: 14px; margin-bottom: 8px; padding: 0; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice span {
+  display: block; text-align: center;
+  border: 2px solid var(--field-border); border-radius: 14px;
+  padding: 14px 8px; font-weight: 700; font-size: 16px; cursor: pointer;
+  background: var(--field-bg);
+}
+.choice input:focus-visible + span { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+.choice input[value="yes"]:checked + span { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.choice input[value="no"]:checked + span { background: var(--muted); border-color: var(--muted); color: #fff; }
+
+.btn { width: 100%; background: var(--accent); font-size: 17px; padding: 15px; }
+.btn[disabled] { opacity: .6; cursor: default; }
+.error { color: #b3261e; font-size: 14px; margin: 10px 0 0; }
+.hp { position: absolute; left: -9999px; }
+
+.thanks { text-align: center; }
+.thanks .big { font-size: 48px; margin: 0; }
+.footer { text-align: center; color: var(--muted); font-size: 14px; margin-top: 20px; }
+.footer a { color: inherit; font-weight: 700; }
