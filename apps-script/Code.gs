@@ -10,7 +10,7 @@ function doPost(e) {
   if (p.website) return reply_(); // hidden spam-trap field was filled
 
   const attending = p.attending === 'yes' ? 'Yes' : 'No';
-  const row = [new Date(), clean_(p.name), clean_(p.parent), clean_(p.phone), clean_(p.email), attending];
+  const row = [new Date(), clean_(p.name), clean_(p.phone), clean_(p.email), attending];
 
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -22,20 +22,17 @@ function doPost(e) {
 
   if (NOTIFY_EMAIL) {
     MailApp.sendEmail(NOTIFY_EMAIL, 'RSVP: ' + row[1] + ' - ' + attending,
-      'Child: ' + row[1] + '\nParent: ' + row[2] + '\nPhone: ' + row[3] + '\nEmail: ' + row[4] + '\nAttending: ' + attending);
+      'Name: ' + row[1] + '\nPhone: ' + row[2] + '\nEmail: ' + row[3] + '\nAttending: ' + attending);
   }
   return reply_();
 }
 
-const HEADERS = ['Submitted', 'Child', 'Parent', 'Phone', 'Email', 'Attending'];
-
 function sheet_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
-  // Write the header row on first use, and refresh it if the columns have changed.
-  const header = sheet.getRange(1, 1, 1, HEADERS.length);
-  if (header.getValues()[0].join('|') !== HEADERS.join('|')) {
-    header.setValues([HEADERS]).setFontWeight('bold');
+  let sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow(['Submitted', 'Name', 'Phone', 'Email', 'Attending']);
     sheet.setFrozenRows(1);
   }
   return sheet;
