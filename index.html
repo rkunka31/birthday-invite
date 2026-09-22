@@ -44,8 +44,8 @@
 
       <form id="rsvp" novalidate>
         <label class="field">
-          <span>Name</span>
-          <input name="name" autocomplete="name" required>
+          <span>Child's name</span>
+          <input name="name" autocomplete="off" required>
         </label>
         <label class="field">
           <span>Phone number <em>(optional)</em></span>
@@ -113,7 +113,7 @@
         var email = (data.get("email") || "").trim();
         var attending = data.get("attending");
 
-        if (!name) return showError("Please enter your name.");
+        if (!name) return showError("Please enter your child's name.");
         if (phone && phone.replace(/\D/g, "").length < 10) return showError("Please enter a 10-digit phone number, or leave it blank.");
         if (email && !form.email.checkValidity()) return showError("That email address doesn't look right.");
         if (!attending) return showError("Please choose yes or no.");
